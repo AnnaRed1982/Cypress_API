@@ -1,4 +1,4 @@
-const url = "https://rickandmortyapi.com/api";
+const url = " https://httpbin.org";
 
 describe("http tests", () => {
   const request = {
@@ -8,7 +8,7 @@ describe("http tests", () => {
 
   it("test duration", () => {
     cy.request(request).then((response) => {
-      assert.isTrue(response.duration <= 150);
+      assert.isTrue(response.duration <= 2000);
     });
   });
 });

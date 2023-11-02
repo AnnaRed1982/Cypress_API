@@ -1,4 +1,4 @@
-const url = "https://rickandmortyapi.com/api";
+const url = " https://httpbin.org";
 
 describe("http tests", () => {
   const request = {
@@ -8,9 +8,7 @@ describe("http tests", () => {
 
   it("response code should be 200", () => {
     cy.request(request).then((response) => {
-      console.log(response);
       const status = response.status;
-
       assert.equal(200, status);
     });
   });
@@ -18,17 +16,45 @@ describe("http tests", () => {
 
 describe("http tests", () => {
   const request = {
-    url,
     method: "POST",
+    url: `${url}/post`,
     failOnStatusCode: false,
   };
 
-  it("response code should be 404", () => {
+  it("response code should be 200", () => {
     cy.request(request).then((response) => {
-      console.log(response);
       const status = response.status;
+      assert.equal(200, status);
+    });
+  });
+});
 
-      assert.equal(404, status);
+describe("http tests", () => {
+  const request = {
+    method: "PATCH",
+    url: `${url}/patch`,
+    failOnStatusCode: false,
+  };
+
+  it("response code should be 200", () => {
+    cy.request(request).then((response) => {
+      const status = response.status;
+      assert.equal(200, status);
+    });
+  });
+});
+
+describe("http tests", () => {
+  const request = {
+    method: "DELETE",
+    url: `${url}/delete`,
+    failOnStatusCode: false,
+  };
+
+  it("response code should be 200", () => {
+    cy.request(request).then((response) => {
+      const status = response.status;
+      assert.equal(200, status);
     });
   });
 });
