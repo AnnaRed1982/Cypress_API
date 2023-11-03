@@ -29,7 +29,7 @@ describe("http tests", () => {
   it("test send cookie", () => {
     cy.request(request).then((response) => {
       assert.equal(200, response.status);
-      assert.equal("cookieValue", response.requestHeaders["Cookie"]);
+      assert.equal("cookieValue", response.requestHeaders.Cookie);
     });
   });
 });
